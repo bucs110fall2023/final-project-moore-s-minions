@@ -8,13 +8,13 @@
 
 << List team member names >>
 
-***Sammy Haridy, Andrew Chen
+Sammy Haridy, Andrew Chen
 
 ## Project Description
 
 << Give an overview of your project >>
 
-***A sorting algorithm with vertical bars displayed on the GUI, a sorting alogorithm on python will organize these bars based on length.    
+A sorting algorithm with vertical bars displayed on the GUI, a sorting alogorithm on python will organize these bars based on length.    
 
 ## GUI Design
 
@@ -30,11 +30,11 @@
 
 ### Features
 
-1. << moving vertical bars
-2. << Possibly add the option for the user to try to sort the bars manually (timed)
-3. << Bet on which algorithm is the fastest >>
-4. << Bar sorting animation >>
-5. << Timer >>
+1. moving vertical bars
+2. Possibly add the option for the user to try to sort the bars manually (timed)
+3. Bet on which algorithm is the fastest 
+4. Bar sorting animation
+5. Timer
 
 ### Classes
 

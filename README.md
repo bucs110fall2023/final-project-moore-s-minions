@@ -42,4 +42,9 @@ A sorting algorithm with vertical bars displayed on the GUI, a sorting alogorith
 
 ## ATP
 
+1. Click on the first of the three rectangles on the screen named "Bubble Sorting" (the other two rectangles are named after different sorting techniques). Result: A textbox writing "Bet Placed: Bubble Sorting" should pop up on the screen and a question in terminal will ask the user for the amount of items to sort.
+2. In the terminal box, enter 10. Result: A question in terminal will ask the user for the length of the shortest item. 
+3. In the terminal box, enter 50. Result: A question in terminal will ask the user for the length of the longest item. 
+4. In the terminal box, enter 500. Result: 10 rectangles with random lengths varying from 50 to 500 will show up on the screen. A text box at the top of the screen says "Bubble Sorting". The rectangles will sort themselves shortest to longest, left being shortest. The time to sort will be displayed on the screen. The same will happen with the other two sorting techniques. If Bubble Sorting was the fastest, a text box reading "You Win! pops up. A restart button will appear on the screen.
+2. Click on the restart button. Result: the three sorting technique rectangles will pop up on the screen. A text will say "Pick a sorting technique to bet on its speed."
 

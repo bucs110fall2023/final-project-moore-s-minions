@@ -83,6 +83,10 @@ def update_display(i, j, heights):
         text = font.render(str(heights[idx]), True, TEXT_COLOR)
         text_rect = text.get_rect(center=(x_position + RECTANGLE_WIDTH // 2, SCREEN_HEIGHT - 10))
         screen.blit(text, text_rect)
+    elapsed_time = pygame.time.get_ticks()/1000
+    timer_text = font.render(f"{elapsed_time} seconds", True, TEXT_COLOR)
+    timer_rect = timer_text.get_rect(topleft=(SCREEN_WIDTH - 150, 10))
+    screen.blit(timer_text, timer_rect)
 
     pygame.display.flip()
     pygame.time.delay(500)  # Delay to make the sorting steps visible
@@ -102,17 +106,27 @@ clock = pygame.time.Clock()
 
 # Main loop
 running = True
+sorting = False  # Flag to indicate whether the sorting is active
+
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+            # Start sorting when the space bar is pressed
+            sorting = True
 
-    # Run the Bubble Sort algorithm
-    bubble_sort(rectangle_heights)
+    if sorting:
+        # Run the Bubble Sort algorithm
+        bubble_sort(rectangle_heights)
+        sorting = False  # Stop sorting after one iteration
 
     # Quit the loop after the sorting is done
-    running = False
+    if not any(heights != sorted(heights) for heights in [rectangle_heights]):
+        running = False
+
 
 # Quit Pygame
 pygame.quit()
+
 

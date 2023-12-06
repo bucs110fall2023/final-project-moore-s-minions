@@ -39,11 +39,14 @@ import random
 pygame.init()
 
 # Constants
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
-RECTANGLE_WIDTH = 50
-RECTANGLE_HEIGHT_MAX = 500
-NUM_RECTANGLES = 10
+SCREEN_WIDTH = 1280
+SCREEN_HEIGHT = 960
+NUM_RECTANGLES = int(input("number of rectangles?: "))
+RECTANGLE_HEIGHT_MIN = int(input("minimum height?: "))
+RECTANGLE_HEIGHT_MAX = int(input("maximum height?: "))
+RECTANGLE_WIDTH = (SCREEN_WIDTH*0.75)/NUM_RECTANGLES
+
+
 
 # Colors
 BLACK = (0, 0, 0)
@@ -54,7 +57,7 @@ TEXT_COLOR = (255, 255, 255)
 
 # Function to generate random heights for rectangles
 def generate_random_heights(num_rectangles):
-    return [random.randint(50, RECTANGLE_HEIGHT_MAX) for _ in range(num_rectangles)]
+    return [random.randint(RECTANGLE_HEIGHT_MIN, RECTANGLE_HEIGHT_MAX) for _ in range(num_rectangles)]
 
 # Bubble Sort algorithm
 def bubble_sort(heights):
@@ -84,7 +87,7 @@ def update_display(i, j, heights):
         text_rect = text.get_rect(center=(x_position + RECTANGLE_WIDTH // 2, SCREEN_HEIGHT - 10))
         screen.blit(text, text_rect)
     elapsed_time = pygame.time.get_ticks()/1000
-    timer_text = font.render(f"{elapsed_time} seconds", True, TEXT_COLOR)
+    timer_text = timer_font.render(f"{elapsed_time} seconds", True, TEXT_COLOR)
     timer_rect = timer_text.get_rect(topleft=(SCREEN_WIDTH - 150, 10))
     screen.blit(timer_text, timer_rect)
 
@@ -100,7 +103,7 @@ pygame.display.set_caption("Sorting Rectangles")
 
 # Font for displaying text
 font = pygame.font.Font(None, 24)
-
+timer_font = pygame.font.Font(None, 24)
 # Clock to control the frame rate
 clock = pygame.time.Clock()
 

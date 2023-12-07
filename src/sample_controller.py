@@ -119,46 +119,46 @@ def draw_menu():
     button_font = pygame.font.Font(None, 36)
 
     # Draw menu buttons for number of rectangles
-    button_10_rect = pygame.draw.rect(screen, button_color10, (300, 200, 200, 50))
-    button_20_rect = pygame.draw.rect(screen, button_color20, (300, 300, 200, 50))
-    button_30_rect = pygame.draw.rect(screen, button_color30, (300, 400, 200, 50))
+    button_10_rect = pygame.draw.rect(screen, button_color10, (100, 200, 200, 50))
+    button_20_rect = pygame.draw.rect(screen, button_color20, (100, 300, 200, 50))
+    button_30_rect = pygame.draw.rect(screen, button_color30, (100, 400, 200, 50))
 
     # Draw text on menu buttons for number of rectangles
     text_10 = button_font.render("10 Rectangles", True, TEXT_COLOR)
     text_20 = button_font.render("20 Rectangles", True, TEXT_COLOR)
     text_30 = button_font.render("30 Rectangles", True, TEXT_COLOR)
 
-    screen.blit(text_10, (300 + 20, 200 + 10))
-    screen.blit(text_20, (300 + 20, 300 + 10))
-    screen.blit(text_30, (300 + 20, 400 + 10))
+    screen.blit(text_10, (100 + 20, 200 + 10))
+    screen.blit(text_20, (100 + 20, 300 + 10))
+    screen.blit(text_30, (100 + 20, 400 + 10))
 
     # Draw menu buttons for minimum height
-    button_50_min = pygame.draw.rect(screen, button_color50, (600, 200, 200, 50))
-    button_100_min = pygame.draw.rect(screen,button_color100, (600, 300, 200, 50))
-    button_150_min = pygame.draw.rect(screen,button_color150, (600, 400, 200, 50))
+    button_50_min = pygame.draw.rect(screen, button_color50, (400, 200, 200, 50))
+    button_100_min = pygame.draw.rect(screen,button_color100, (400, 300, 200, 50))
+    button_150_min = pygame.draw.rect(screen,button_color150, (400, 400, 200, 50))
 
     # Draw text on menu buttons for minimum height
     text_50_min = button_font.render("50 Min Height", True, TEXT_COLOR)
     text_100_min = button_font.render("100 Min Height", True, TEXT_COLOR)
     text_150_min = button_font.render("150 Min Height", True, TEXT_COLOR)
 
-    screen.blit(text_50_min, (600 + 20, 200 + 10))
-    screen.blit(text_100_min, (600 + 20, 300 + 10))
-    screen.blit(text_150_min, (600 + 20, 400 + 10))
+    screen.blit(text_50_min, (400 + 20, 200 + 10))
+    screen.blit(text_100_min, (400 + 20, 300 + 10))
+    screen.blit(text_150_min, (400 + 20, 400 + 10))
 
     # Draw menu buttons for maximum height
-    button_500_max = pygame.draw.rect(screen, button_color500, (900, 200, 200, 50))
-    button_600_max = pygame.draw.rect(screen, button_color600, (900, 300, 200, 50))
-    button_700_max = pygame.draw.rect(screen, button_color700, (900, 400, 200, 50))
+    button_500_max = pygame.draw.rect(screen, button_color500, (700, 200, 200, 50))
+    button_600_max = pygame.draw.rect(screen, button_color600, (700, 300, 200, 50))
+    button_700_max = pygame.draw.rect(screen, button_color700, (700, 400, 200, 50))
 
     # Draw text on menu buttons for maximum height
     text_500_max = button_font.render("500 Max Height", True, TEXT_COLOR)
     text_600_max = button_font.render("600 Max Height", True, TEXT_COLOR)
     text_700_max = button_font.render("700 Max Height", True, TEXT_COLOR)
 
-    screen.blit(text_500_max, (900 + 20, 200 + 10))
-    screen.blit(text_600_max, (900 + 20, 300 + 10))
-    screen.blit(text_700_max, (900 + 20, 400 + 10))
+    screen.blit(text_500_max, (700 + 20, 200 + 10))
+    screen.blit(text_600_max, (700 + 20, 300 + 10))
+    screen.blit(text_700_max, (700 + 20, 400 + 10))
 
     pygame.display.flip()
 
@@ -221,15 +221,15 @@ while running:
     if menu_active:
         # Draw the menu screen
         draw_menu()
-        button_10_rect = pygame.Rect(300, 200, 200, 50)
-        button_20_rect = pygame.Rect(300, 300, 200, 50)
-        button_30_rect = pygame.Rect(300, 400, 200, 50)
-        button_50_min = pygame.Rect(600, 200, 200, 50)
-        button_100_min = pygame.Rect(600, 300, 200, 50)
-        button_150_min = pygame.Rect(600, 400, 200, 50)
-        button_500_max = pygame.Rect(900, 200, 200, 50)
-        button_600_max = pygame.Rect(900, 300, 200, 50)
-        button_700_max = pygame.Rect(900, 400, 200, 50)
+        button_10_rect = pygame.Rect(100, 200, 200, 50)
+        button_20_rect = pygame.Rect(100, 300, 200, 50)
+        button_30_rect = pygame.Rect(100, 400, 200, 50)
+        button_50_min = pygame.Rect(400, 200, 200, 50)
+        button_100_min = pygame.Rect(400, 300, 200, 50)
+        button_150_min = pygame.Rect(400, 400, 200, 50)
+        button_500_max = pygame.Rect(700, 200, 200, 50)
+        button_600_max = pygame.Rect(700, 300, 200, 50)
+        button_700_max = pygame.Rect(700, 400, 200, 50)
     else:
         # Draw the sorting screen
         RECTANGLE_WIDTH = (SCREEN_WIDTH * 0.75) / num_rectangles

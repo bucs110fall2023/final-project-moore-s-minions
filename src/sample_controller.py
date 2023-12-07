@@ -179,23 +179,32 @@ import random
 pygame.init()
 
 # Constants
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
-RECTANGLE_WIDTH = 50
-RECTANGLE_HEIGHT_MAX = 500
-NUM_RECTANGLES = 10
+SCREEN_WIDTH = 1024
+SCREEN_HEIGHT = 768
 
-rectangle_height_min = 0
-rectangle_height_max = 0
+
+
 # Colors
 BLACK = (0, 0, 0)
 RECTANGLE_COLOR = (0, 0, 255)
 SWAP_COLOR = (255, 0, 0)
 TEXT_COLOR = (255, 255, 255)
 
-# Function to generate random heights for rectangles
-def generate_random_heights(num_rectangles):
-    return [random.randint(50, RECTANGLE_HEIGHT_MAX) for _ in range(num_rectangles)]
+button_color10 = (255, 0, 255)
+button_color20 = (255, 0, 255)
+button_color30 = (255, 0, 255)
+
+button_color50 = (255, 0, 255)
+button_color100 = (255, 0, 255)
+button_color150 = (255, 0, 255)
+
+button_color500 = (255, 0, 255)
+button_color600 = (255, 0, 255)
+button_color700 = (255, 0, 255)
+
+button_pressed_color = (203, 195, 227)
+
+
 
 # Bubble Sort algorithm
 def bubble_sort(heights):
@@ -233,8 +242,6 @@ def update_display(i, j, heights):
     fptr = open("time.txt", 'w')
     fptr.write(f"Time it took: {elapsed_time}\n")
     fptr.close()
-
-
 
     screen.blit(timer_text, timer_rect)
 

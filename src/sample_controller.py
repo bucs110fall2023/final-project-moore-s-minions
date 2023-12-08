@@ -96,6 +96,7 @@ def update_display(i, j, heights):
         text = font.render(str(heights[idx]), True, TEXT_COLOR)
         text_rect = text.get_rect(center=(x_position + RECTANGLE_WIDTH // 2, SCREEN_HEIGHT - 10))
         screen.blit(text, text_rect)
+    elapsed_time = 0
     elapsed_time = pygame.time.get_ticks()/1000
     timer_text = font.render(f"{elapsed_time} seconds", True, TEXT_COLOR)
     timer_rect = timer_text.get_rect(topleft=(SCREEN_WIDTH - 150, 10))
@@ -117,6 +118,11 @@ def draw_menu():
 
     # Font for menu buttons
     button_font = pygame.font.Font(None, 36)
+    title_font = pygame.font.Font(None, 72)
+
+    # Draw instruction texts
+    title_text = title_font.render("Sorting Algorithm", True, TEXT_COLOR)
+    instruction_text = button_font.render("Instructions: click buttons from left to right, only select 1 option from each column.", True, TEXT_COLOR)
 
     # Draw menu buttons for number of rectangles
     button_10_rect = pygame.draw.rect(screen, button_color10, (100, 200, 200, 50))
@@ -131,6 +137,8 @@ def draw_menu():
     screen.blit(text_10, (100 + 20, 200 + 10))
     screen.blit(text_20, (100 + 20, 300 + 10))
     screen.blit(text_30, (100 + 20, 400 + 10))
+    screen.blit(title_text, (300, 0))
+    screen.blit(instruction_text, (25, 100))
 
     # Draw menu buttons for minimum height
     button_50_min = pygame.draw.rect(screen, button_color50, (400, 200, 200, 50))

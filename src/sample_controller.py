@@ -115,7 +115,7 @@ def draw_menu():
     title_font = pygame.font.Font(None, 72)
 
     # Draw instruction texts
-    title_text = title_font.render("Sorting Algorithm", True, TEXT_COLOR)
+    title_text = title_font.render("Bubble Sorting", True, TEXT_COLOR)
     instruction_text = button_font.render("Instructions: click buttons from left to right, only select 1 option from each column.", True, TEXT_COLOR)
 
     # Draw menu buttons for number of rectangles
@@ -124,9 +124,9 @@ def draw_menu():
     button_30_rect = pygame.draw.rect(screen, button_color30, (100, 400, 200, 50))
 
     # Draw text on menu buttons for number of rectangles
-    text_10 = button_font.render("10 Rectangles", True, TEXT_COLOR)
-    text_20 = button_font.render("20 Rectangles", True, TEXT_COLOR)
-    text_30 = button_font.render("30 Rectangles", True, TEXT_COLOR)
+    text_10 = button_font.render("10 Elements", True, TEXT_COLOR)
+    text_20 = button_font.render("20 Elements", True, TEXT_COLOR)
+    text_30 = button_font.render("30 Elements", True, TEXT_COLOR)
 
     screen.blit(text_10, (100 + 20, 200 + 10))
     screen.blit(text_20, (100 + 20, 300 + 10))

@@ -1,1 +1,1 @@
-Time it took: 15.32
+Time it took: 10.52 seconds

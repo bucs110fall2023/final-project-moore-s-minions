@@ -1,4 +1,3 @@
-
 # class Controller:
   
 #   def __init__(self):
@@ -70,6 +69,7 @@ button_pressed_color = (203, 195, 227)
 
 # Bubble Sort algorithm
 def bubble_sort(heights):
+    start_time = pygame.time.get_ticks() / 1000
     n = len(heights)
     for i in range(n):
         for j in range(0, n-i-1):
@@ -78,7 +78,9 @@ def bubble_sort(heights):
                 heights[j], heights[j+1] = heights[j+1], heights[j]
                 # Update display
                 update_display(j, j+1, heights)
-    return pygame.time.get_ticks() / 1000  # Return the total time taken
+    end_time = pygame.time.get_ticks() / 1000
+    time_taken = end_time - start_time
+    return time_taken  # Return the total time taken
 
 # Function to update the display
 def update_display(i, j, heights):
@@ -96,18 +98,10 @@ def update_display(i, j, heights):
         text = font.render(str(heights[idx]), True, TEXT_COLOR)
         text_rect = text.get_rect(center=(x_position + RECTANGLE_WIDTH // 2, SCREEN_HEIGHT - 10))
         screen.blit(text, text_rect)
-    elapsed_time = 0
-    elapsed_time = pygame.time.get_ticks()/1000
-    timer_text = font.render(f"{elapsed_time} seconds", True, TEXT_COLOR)
+    current_time = pygame.time.get_ticks()/1000 - start_time/1000
+    timer_text = font.render(f"{current_time:.3f} seconds", True, TEXT_COLOR)
     timer_rect = timer_text.get_rect(topleft=(SCREEN_WIDTH - 150, 10))
- 
-
-    fptr = open("time.txt", 'w')
-    fptr.write(f"Time it took: {elapsed_time}\n")
-    fptr.close()
-
     screen.blit(timer_text, timer_rect)
-
     pygame.display.flip()
     clock.tick(2)  # Control the frame rate (30 frames per second)
     
@@ -218,14 +212,17 @@ while running:
                 rectangle_height_max = 500
                 button_color500 = (203, 195, 227)
                 menu_active = False
+                start_time = pygame.time.get_ticks()
             elif button_600_max.collidepoint(mouse_pos):
                 rectangle_height_max = 600
                 button_color600 = (203, 195, 227)
                 menu_active = False
+                start_time = pygame.time.get_ticks()
             elif button_700_max.collidepoint(mouse_pos):
                 rectangle_height_max = 700
                 button_color700 = (203, 195, 227)
                 menu_active = False
+                start_time = pygame.time.get_ticks()
     if menu_active:
         # Draw the menu screen
         draw_menu()
@@ -247,7 +244,9 @@ while running:
             return [random.randint(rectangle_height_min, rectangle_height_max) for _ in range(num_rectangles)]
         rectangle_heights = generate_random_heights(num_rectangles)
         total_time = bubble_sort(rectangle_heights)
-        print(f"Total time: {total_time:.2f} seconds")
+        fptr = open("time.txt", 'w')
+        fptr.write(f"Time it took: {total_time:.2f} seconds")
+        fptr.close()
         running = False  # Stop the program after one iteration
 
 # Quit Pygame

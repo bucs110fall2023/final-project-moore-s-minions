@@ -33,6 +33,10 @@ class Controller:
         # Time tracking attribute
         self.start_time = 0
 
+        # Running and menu_active as instance variables
+        self.running = True
+        self.menu_active = True
+
     def init_button_colors(self):
         # Button colors for menu
         self.button_color10 = (255, 0, 255)
@@ -47,17 +51,15 @@ class Controller:
 
     def mainloop(self):
         # Main loop
-        running = True
-        menu_active = True
 
-        while running:
+        while self.running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    running = False
-                elif event.type == pygame.MOUSEBUTTONDOWN and menu_active:
+                    self.running = False
+                elif event.type == pygame.MOUSEBUTTONDOWN and self.menu_active:
                     self.handle_menu_clicks()
 
-            if menu_active:
+            if self.menu_active:
                 # Draw the menu screen
                 self.draw_menu()
             else:
@@ -178,7 +180,7 @@ class Controller:
         fptr = open("time.txt", 'w')
         fptr.write(f"Time it took: {total_time:.2f} seconds")
         fptr.close()
-        running = False  # Stop the program after one iteration
+        self.running = False  # Stop the program after one iteration
 
     def bubble_sort(self, heights):
         start_time = pygame.time.get_ticks() / 1000

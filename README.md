@@ -1,18 +1,17 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=12804164&assignment_repo_type=AssignmentRepo)
-:warning: Everything between << >> needs to be replaced (remove << >> after replacing)
+[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=12804164&
 
-# << SORTING ALGORITHM >>
-## CS110 Final Project  << Semester 1, Year 2023>>
+# SORTING ALGORITHM
+
+## CS110 Final Project   Semester 1, Year 2023
 
 ## Team Members
 
-<< List team member names >>
+
 
 Sammy Haridy, Andrew Chen
 
 ## Project Description
 
-<< Give an overview of your project >>
 
 A sorting algorithm with vertical bars displayed on the GUI, a sorting alogorithm on python will organize these bars based on length.    
 
@@ -25,6 +24,7 @@ A sorting algorithm with vertical bars displayed on the GUI, a sorting alogorith
 ### Final Design
 
 ![final gui](assets/finalgui.jpg)
+![final gui](assets/finalgui1.jpg)
 
 ## Program Design
 

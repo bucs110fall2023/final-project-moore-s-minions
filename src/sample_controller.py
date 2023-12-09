@@ -3,7 +3,6 @@ import random
 
 class Controller:
     def __init__(self):
-        # Initialize Pygame
         pygame.init()
 
         # Constants
@@ -17,23 +16,12 @@ class Controller:
         self.TEXT_COLOR = (255, 255, 255)
         self.button_pressed_color = (203, 195, 227)
 
-        # Initialize Pygame display
         self.screen = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
         pygame.display.set_caption("Bubble Sorting")
-
-        # Font for displaying text
         self.font = pygame.font.Font(None, 24)
-
-        # Clock to control the frame rate
         self.clock = pygame.time.Clock()
-
-        # Initialize button colors
         self.init_button_colors()
-
-        # Time tracking attribute
         self.start_time = 0
-
-        # Running and menu_active as instance variables
         self.running = True
         self.menu_active = True
 
@@ -50,39 +38,31 @@ class Controller:
         self.button_color700 = (255, 0, 255)
 
     def mainloop(self):
-        # Main loop
-
         while self.running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN and self.menu_active:
                     self.handle_menu_clicks()
-
             if self.menu_active:
-                # Draw the menu screen
                 self.draw_menu()
             else:
-                # Draw the sorting screen
                 self.handle_sorting_screen()
-
-        # Quit Pygame
         pygame.quit()
 
     def handle_menu_clicks(self):
-        # Handle menu button clicks
         mouse_pos = pygame.mouse.get_pos()
 
         # Check number of rectangles buttons
         if self.button_10_rect.collidepoint(mouse_pos):
             self.button_color10 = self.button_pressed_color
-            self.num_rectangles = 10
+            self.num_rectangles = 30
         elif self.button_20_rect.collidepoint(mouse_pos):
             self.button_color20 = self.button_pressed_color
-            self.num_rectangles = 20
+            self.num_rectangles = 40
         elif self.button_30_rect.collidepoint(mouse_pos):
             self.button_color30 = self.button_pressed_color
-            self.num_rectangles = 30
+            self.num_rectangles = 50
 
         # Check minimum height buttons
         elif self.button_50_min.collidepoint(mouse_pos):
@@ -113,7 +93,6 @@ class Controller:
             self.start_time = pygame.time.get_ticks()  
 
     def draw_menu(self):
-        # Draw the menu screen
         self.screen.fill(self.BLACK)
 
         # Font for menu buttons
@@ -129,9 +108,9 @@ class Controller:
         self.button_20_rect = pygame.draw.rect(self.screen, self.button_color20, (100, 300, 200, 50))
         self.button_30_rect = pygame.draw.rect(self.screen, self.button_color30, (100, 400, 200, 50))
 
-        text_10 = button_font.render("10 Elements", True, self.TEXT_COLOR)
-        text_20 = button_font.render("20 Elements", True, self.TEXT_COLOR)
-        text_30 = button_font.render("30 Elements", True, self.TEXT_COLOR)
+        text_10 = button_font.render("30 Elements", True, self.TEXT_COLOR)
+        text_20 = button_font.render("40 Elements", True, self.TEXT_COLOR)
+        text_30 = button_font.render("50 Elements", True, self.TEXT_COLOR)
 
         self.screen.blit(text_10, (100 + 20, 200 + 10))
         self.screen.blit(text_20, (100 + 20, 300 + 10))
@@ -168,7 +147,6 @@ class Controller:
         pygame.display.flip()
 
     def handle_sorting_screen(self):
-        # Draw the sorting screen
         self.RECTANGLE_WIDTH = (self.SCREEN_WIDTH * 0.75) / self.num_rectangles
 
         # Function to generate random heights for rectangles
@@ -180,7 +158,7 @@ class Controller:
         fptr = open("time.txt", 'w')
         fptr.write(f"Time it took: {total_time:.2f} seconds")
         fptr.close()
-        self.running = False  # Stop the program after one iteration
+        self.running = False
 
     def bubble_sort(self, heights):
         start_time = pygame.time.get_ticks() / 1000
@@ -188,33 +166,28 @@ class Controller:
         for i in range(n):
             for j in range(0, n-i-1):
                 if heights[j] > heights[j+1]:
-                    # Swap heights
                     heights[j], heights[j+1] = heights[j+1], heights[j]
-                    # Update display
                     self.update_display(j, j+1, heights)
         end_time = pygame.time.get_ticks() / 1000
         time_taken = end_time - start_time
-        return time_taken  # Return the total time taken
+        return time_taken
 
     def update_display(self, i, j, heights):
         self.screen.fill(self.BLACK)
         for idx in range(len(heights)):
             x_position = idx * (self.SCREEN_WIDTH // len(heights))
             y_position = self.SCREEN_HEIGHT - heights[idx]
-
             if idx == i or idx == j:
-                # Highlight the rectangles being swapped
                 pygame.draw.rect(self.screen, self.SWAP_COLOR, (x_position, y_position, self.RECTANGLE_WIDTH, heights[idx]))
             else:
                 pygame.draw.rect(self.screen, self.RECTANGLE_COLOR, (x_position, y_position, self.RECTANGLE_WIDTH, heights[idx]))
-
             text = self.font.render(str(heights[idx]), True, self.TEXT_COLOR)
             text_rect = text.get_rect(center=(x_position + self.RECTANGLE_WIDTH // 2, self.SCREEN_HEIGHT - 10))
             self.screen.blit(text, text_rect)
 
         current_time = pygame.time.get_ticks()/1000 - self.start_time/1000
-        timer_text = self.font.render(f"{current_time:.3f} seconds", True, self.TEXT_COLOR)
+        timer_text = self.font.render(f"{current_time:.2f} seconds", True, self.TEXT_COLOR)
         timer_rect = timer_text.get_rect(topleft=(self.SCREEN_WIDTH - 150, 10))
         self.screen.blit(timer_text, timer_rect)
         pygame.display.flip()
-        self.clock.tick(3)  # Control the frame rate (3 frames per second)
+        self.clock.tick(12)

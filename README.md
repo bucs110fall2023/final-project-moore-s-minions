@@ -30,21 +30,20 @@ A sorting algorithm with vertical bars displayed on the GUI, a sorting alogorith
 
 ### Features
 
-1. moving vertical bars
-2. Possibly add the option for the user to try to sort the bars manually (timed)
-3. Bet on which algorithm is the fastest 
-4. Bar sorting animation
-5. Timer
+1. Nine pressable buttons
+2. Customizable amount of rectangles to sort
+3. Customizable minimum height and maximum height of rectangles to sort
+4. Bar sorting animation with red highlighting rectangles to be swapped
+5. Stopwatch recording how long it takes for the program to run
 
 ### Classes
 
-- << You should have a list of each of your classes with a description >>
+- Controller: The only class in the code. Within it are several methods. Def init contains all the starter code and variables. Def mainloop runs the methods in the class like bubble sort and update display. Def handle menu clicks contains all the code for pressing the buttons on the menu screen. Def draaw menu displays it on the screen.
 
 ## ATP
 
-1. Click on the first of the three rectangles on the screen named "Bubble Sorting" (the other two rectangles are named after different sorting techniques). Result: A textbox writing "Bet Placed: Bubble Sorting" should pop up on the screen and a question in terminal will ask the user for the amount of items to sort.
-2. In the terminal box, enter 10. Result: A question in terminal will ask the user for the length of the shortest item. 
-3. In the terminal box, enter 50. Result: A question in terminal will ask the user for the length of the longest item. 
-4. In the terminal box, enter 500. Result: 10 rectangles with random lengths varying from 50 to 500 will show up on the screen. A text box at the top of the screen says "Bubble Sorting". The rectangles will sort themselves shortest to longest, left being shortest. The time to sort will be displayed on the screen. The same will happen with the other two sorting techniques. If Bubble Sorting was the fastest, a text box reading "You Win! pops up. A restart button will appear on the screen.
-2. Click on the restart button. Result: the three sorting technique rectangles will pop up on the screen. A text will say "Pick a sorting technique to bet on its speed."
+1. Click on the "10 Elements" box on the far left. Result: The "10 Elements" box will turn light purple. 
+2. Click on the "50 Min Height" box on the far left. Result: The "50 Min Height" box will turn light purple. 
+3. Click on the "500 Max Height" box on the far left. Result: The "500 Max Height" box will turn light purple. 10 rectangles with random lengths varying from 50 to 500 will show up on the screen. The rectangles will sort themselves shortest to longest, left being shortest. The time to sort will be displayed on the screen. 
+
 
